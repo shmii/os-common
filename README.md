@@ -2,7 +2,7 @@
 Ansible role to configure Linux OS (Security, prerequisite packages and tools, etc ...)
 
 
-This role :  :
+This role :
   -  Install and configures Essentiels Extra Repositories (epel, powertools)
   -  Install useful packages or sysadmin tools
   -  Create base environement for systeme and infra administrators (users, directories, etc ...)
@@ -55,9 +55,12 @@ None.
 
 ## Warning / known bugs
 
-/!\ pour l'utilisation de molecule depuis WSL/WSL2 il faut creer le dossier `/sys/fs/cgroup/systemd` sur le sous systeme linux hote.
+/!\ To validate this role with "molecule" from Ubuntu @ WSL/WSL2 it is necessary to create the folder  `/sys/fs/cgroup/systemd` on the host linux subsystem. 
+
+
 `sudo mkdir /sys/fs/cgroup/systemd`
-celui ci est nessesaire pour certains os (RHEL9, Rocky9, etc ...)
+
+This directory is necessary for some os (RHEL9, Rocky9, etc...) and not existing on local Ubuntu WSL sub Systeme. 
 
 ## License
 
