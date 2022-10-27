@@ -9,6 +9,18 @@ This role :
   -  Create base environement for applications and servicies
 
 
+## Test and run environement
+
+
+```
+molecule 4.0.3 using python 3.10 
+    ansible:2.10.8
+    delegated:4.0.3 from molecule
+    docker:2.1.0 from molecule_docker requiring collections: community.docker>=3.0.2 ansible.posix>=1.4.0
+
+```
+
+
 ## Requirements
 
 None.
@@ -21,7 +33,7 @@ vailable variables are listed below, along with default values (see `defaults/ma
 
 Use `os_app_directories` to define needed applications direcories
 
-```
+```yaml
 os_app_directories:
   - Name: "Application root directory"
     path: /app
@@ -32,7 +44,7 @@ os_app_directories:
 
 Use `os_infra_directories` to define needed applications direcories
 
-```
+```yaml
 os_infra_directories:
   - Name: "Infra tools root Directory"
     path: /app/infra
@@ -48,10 +60,11 @@ None.
 
 ## Example Playbook
 
+```yaml
     - hosts: server
       roles:
         - { role: shmii.os-common }
-
+```
 
 ## Warning / known bugs
 
