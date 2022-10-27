@@ -75,6 +75,16 @@ None.
 
 This directory is necessary for some os (RHEL9, Rocky9, etc...) and not existing on local Ubuntu WSL sub Systeme. 
 
+## Sources and Bibliography
+
+
+Redde Caesari quae sunt Caesaris, et quae sunt Dei Deo !
+ 
+- Jeff GEERLING ( https://www.linkedin.com/in/jeff-geerling-086bb2a/  --- https://github.com/geerlingguy)
+- Stephane ROBERT ( https://www.linkedin.com/in/stephanerobert1/  ---  https://blog.stephane-robert.info)
+
+
+
 ## License
 
 GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
