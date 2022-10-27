@@ -1,0 +1,9 @@
+---
+- name: "Redhat Familly - 8 - Install DSI tools"
+  yum:
+    name: "{{ __os_tools_packages }}"
+    state: latest
+    enablerepo: "epel, PowerTools"
+  register: yum_res
+  retries: 5
+  until: yum_res is success

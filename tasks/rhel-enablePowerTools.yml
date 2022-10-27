@@ -1,0 +1,9 @@
+---
+- name: "Redhat Familly - Install dnf plugins core"
+  yum:
+    name: "dnf-plugins-core"
+    state: latest
+    enablerepo: "epel"
+
+- name: Redhat Familly - Enable PowerTools repository
+  command: dnf config-manager --set-enabled {{ __powertools_reponame }}

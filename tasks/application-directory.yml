@@ -1,0 +1,15 @@
+---
+- name: Create Application Directories
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    mode: "{{ item.mode }}"
+  with_items: "{{ os_app_directories }}"
+
+
+- name: Create Systeme and Infrastructure administrators Directories
+  file:
+    path: "{{ item.path }}"
+    state: directory
+    mode: "{{ item.mode }}"
+  with_items: "{{ os_infra_directories }}"

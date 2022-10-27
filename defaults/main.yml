@@ -1,0 +1,13 @@
+os_app_directories:
+  - Name: "Application root directory"
+    path: /app
+    mode: '0755'
+
+os_infra_directories:
+  - Name: "Infra tools root Directory"
+    path: /app/infra
+    mode: '0755'
+  - Name: "Test root Directory"
+    path: /app/test
+    mode: '0755'
+
