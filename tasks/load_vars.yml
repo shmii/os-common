@@ -35,9 +35,3 @@
   when: ansible_distribution == 'Amazon'
   tags:
     -  os_amazon_distribution_variables
-
-- name: Include OS Fedora Distributions version specific Variables.
-  include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_version.split('.')[0] }}.yml"
-  when: ansible_distribution == 'Fedora'
-  tags:
-    -  os_fedora_distribution_variables
