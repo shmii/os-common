@@ -2,6 +2,7 @@
 __epel_repo_path: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
 __epel_repo_key: "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9"
 __powertools_reponame : "crb"
+
 __os_tools_packages:
   # - redhat-lsb-core
   # The lsb packages is not provided curently in RHEL9. 
