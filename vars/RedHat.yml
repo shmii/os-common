@@ -12,3 +12,4 @@ __os_tools_packages:
   - python3-pexpect
   - telnet
   - cifs-utils
+  - tree
