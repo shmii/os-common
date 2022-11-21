@@ -10,4 +10,3 @@ os_infra_directories:
   - Name: "Test root Directory"
     path: /app/test
     mode: '0755'
-
