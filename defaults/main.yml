@@ -1,3 +1,4 @@
+---
 os_app_directories:
   - Name: "Application root directory"
     path: /app
