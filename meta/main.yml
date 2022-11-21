@@ -28,44 +28,22 @@ galaxy_info:
   # https://galaxy.ansible.com/api/v1/platforms/
   #
   platforms:
-  - name: Fedora
-    versions:
-    - 29
-    - 30
-    - 31
-    - 32
-    - 33
-    - 34
-    - 35
-    - 36
-  - name: Amazon Linux 2
-    versions:
-    - 2
-  - name: Debian
-    versions:
-    - 9
-    - 10
-    - 11
-  - name: RedHat
-    versions:
-    - 7
-    - 8
-    - 9
-  - name: EL
-    versions:
-    - 7
-    - 8
-    - 9
-  - name: RockyLinux
-    versions:
-    - 8
-    - 9    
-  - name: Ubuntu
-    versions:
-    - 16
-    - 18
-    - 20
-    - 22
+    - name: EL
+      versions:
+        - 7
+        - 8
+    - name: Fedora
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+    - name: Amazon Linux 2
+      versions:
+        - all
 
   # - name: SomePlatform
   #   versions:
