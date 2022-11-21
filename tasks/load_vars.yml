@@ -5,7 +5,6 @@
   tags:
     - os_all_family_variables
 
-
 # Variable OS distribution version specific.
 - name: Include OS Debian Family distributions version specific Variables.
   include_vars: "{{ ansible_distribution }}-{{ ansible_distribution_version.split('.')[0] }}.yml"
