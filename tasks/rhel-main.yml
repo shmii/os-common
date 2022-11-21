@@ -12,4 +12,4 @@
   when: (ansible_facts['distribution_major_version'] >= "8")
 
 - name: Redhat Familly - Install DSI tools
-  import_tasks: rhel-tools.yml  
+  import_tasks: rhel-tools.yml
