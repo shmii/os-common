@@ -1,5 +1,14 @@
 ---
-- name: "Redhat Familly - DSI tools (rhel 7- Familly)"
+- name: "Redhat Familly - DSI tools - Debug"
+  ansible.builtin.debug:
+    msg: 
+    - "ansible_os_family: {{ ansible_os_family }}"
+    - "ansible_distribution: {{ ansible_distribution }}"
+    - "ansible_distribution_release: {{ ansible_distribution_release }}"
+    - "ansible_distribution_version: {{ ansible_distribution_version }}"
+    - "ansible_distribution_major_version: {{ ansible_distribution_major_version }}"
+
+- name: "Redhat Familly - DSI tools (Without PowerTools)"
   ansible.builtin.yum:
     name: "{{ __os_common_tools_packages }}"
     state: latest
@@ -8,9 +17,10 @@
   retries: 5
   until: yum_res is success
   when:
-    - ansible_distribution_major_version <= "7"
+    - (ansible_distribution_major_version <= "7" and ansible_distribution == 'CentOS') or 
+      (ansible_distribution == 'Fedora') or (ansible_distribution == 'Amazon')
 
-- name: "Redhat Familly - DSI tools (rhel 8+ Familly)"
+- name: "Redhat Familly - DSI tools (With PowerTools)"
   ansible.builtin.dnf:
     name: "{{ __os_common_tools_packages }}"
     state: latest
@@ -20,4 +30,6 @@
   retries: 5
   until: dnf_res is success
   when:
-    - ansible_distribution_major_version >= "8"
+    - (ansible_distribution_major_version >= "8" and ansible_distribution == 'CentOS') or
+      (ansible_distribution != 'Fedora' and ansible_distribution != 'Amazon' and not 
+      (ansible_distribution_major_version <= "7" and ansible_distribution == 'CentOS'))

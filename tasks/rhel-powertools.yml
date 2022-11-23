@@ -1,6 +1,10 @@
 ---
-- name: "Redhat Familly - dnf plugins core"
-  ansible.builtin.yum:
+#  Tasks Execute if :
+#    ansible_facts['distribution_major_version'] >= "8" and 
+#    ansible_distribution != 'Fedora'
+#
+- name: "Redhat Familly - Enable powertools (dnf plugins core)"
+  ansible.builtin.dnf:
     name: "dnf-plugins-core"
     state: latest
     enablerepo: "epel"
@@ -14,6 +18,3 @@
     mode: "0644"
   notify:
     - Yum update cache
-  when:
-    - ansible_distribution in [ "CentOS", "EL", "Rocky", "AlmaLinux" ]
-    - ansible_distribution_major_version >= "8"

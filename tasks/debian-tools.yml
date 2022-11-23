@@ -1,9 +1,23 @@
 ---
+- name: Ubuntu Familly - Install DSI tools (Allow Unauthenticated Repo)
+  ansible.builtin.apt:
+    name: "{{ __os_common_tools_packages }}"
+    state: latest
+    update_cache: yes
+    allow_unauthenticated: yes
+  register: apt_res
+  retries: 5
+  until: apt_res is success
+  when: 
+    - ansible_distribution_release == 'jessie'
+
 - name: Ubuntu Familly - Install DSI tools
-  apt:
+  ansible.builtin.apt:
     name: "{{ __os_common_tools_packages }}"
     state: latest
     update_cache: yes
   register: apt_res
   retries: 5
   until: apt_res is success
+  when: 
+    - ansible_distribution_release != 'jessie'

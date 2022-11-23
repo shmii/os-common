@@ -1,4 +1,6 @@
 ---
+#  Tasks Execute if :
+#    ansible_distribution != 'Fedora'
 - name: Redhat Familly - Check if EPEL repo is already configured.
   stat:
     path: "{{ __os_common_epel_repo_path }}"
