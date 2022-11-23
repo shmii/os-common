@@ -19,7 +19,7 @@
 - name: Redhat Familly - Install EPEL repository
   import_tasks: rhel-epel.yml
   when:
-  - ansible_distribution != 'Fedora'
+    - ansible_distribution != 'Fedora'
 
 - name: Redhat Familly - Enable PowerTools repository
   import_tasks: rhel-enablePowerTools.yml
