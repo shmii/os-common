@@ -1,6 +1,6 @@
 ---
 - name: Ubuntu Familly - Create Covage Application directory
-  import_tasks: application-directory.yml
+  import_tasks: directories.yml
 
 - name: Ubuntu Familly - Install DSI tools
   import_tasks: debian-tools.yml

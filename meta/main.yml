@@ -17,7 +17,7 @@ galaxy_info:
   # - CC-BY-4.0
   license: GNU GENERAL PUBLIC LICENSE Version 3, 29 June 2007
 
-  min_ansible_version: 2.1
+  min_ansible_version: "2.1"
 
   # If this a Container Enabled role, provide the minimum Ansible Container version.
   # min_ansible_container_version:
@@ -31,17 +31,31 @@ galaxy_info:
   platforms:
     - name: EL
       versions:
-        - 7
-        - 8
+        - "7"
+        - "8"
+        - "9"
     - name: Fedora
       versions:
-        - all
+        - "29"
+        - "30"
+        - "31"
+        - "32"
+        - "33"
+        - "34"
+        - "35"
+        - "36"
     - name: Debian
       versions:
-        - all
+        - jessie    # Debian 8
+        - stretch   # Debian 9
+        - buster    # Debian 10
+        - bullseye  # Debian 11
     - name: Ubuntu
       versions:
-        - all
+        - xenial    # Ubuntu 16.04 LTS
+        - bionic    # Ubuntu 18.04 LTS
+        - focal     # Ubuntu 20.04 LTS
+        - jammy     # Ubuntu 22.04 LTS
     - name: Amazon Linux 2
       versions:
         - all

@@ -1,7 +1,7 @@
 ---
 - name: Ubuntu Familly - Install DSI tools
   apt:
-    name: "{{ __os_tools_packages }}"
+    name: "{{ __os_common_tools_packages }}"
     state: latest
     update_cache: yes
   register: apt_res

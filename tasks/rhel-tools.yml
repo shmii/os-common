@@ -1,9 +1,23 @@
 ---
-- name: "Redhat Familly - 8 - Install DSI tools"
-  yum:
-    name: "{{ __os_tools_packages }}"
+- name: "Redhat Familly - DSI tools (rhel 7- Familly)"
+  ansible.builtin.yum:
+    name: "{{ __os_common_tools_packages }}"
     state: latest
-    enablerepo: "epel, PowerTools"
+    enablerepo: "epel"
   register: yum_res
   retries: 5
   until: yum_res is success
+  when:
+    - ansible_distribution_major_version <= "7"
+
+- name: "Redhat Familly - DSI tools (rhel 8+ Familly)"
+  ansible.builtin.dnf:
+    name: "{{ __os_common_tools_packages }}"
+    state: latest
+    enablerepo: "epel, {{ __os_common_powertools_repository_name }}"
+    allowerasing: true
+  register: dnf_res
+  retries: 5
+  until: dnf_res is success
+  when:
+    - ansible_distribution_major_version >= "8"

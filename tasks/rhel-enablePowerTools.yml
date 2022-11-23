@@ -1,9 +1,19 @@
 ---
-- name: "Redhat Familly - Install dnf plugins core"
-  yum:
+- name: "Redhat Familly - dnf plugins core"
+  ansible.builtin.yum:
     name: "dnf-plugins-core"
     state: latest
     enablerepo: "epel"
 
-- name: Redhat Familly - Enable PowerTools repository
-  command: dnf config-manager --set-enabled {{ __powertools_reponame }}
+- name: Redhat Familly - Enable powertools
+  community.general.ini_file:
+    path: "/etc/yum.repos.d/{{ __os_common_powertools_repository_file }}"
+    section: "{{ __os_common_powertools_repository_name }}"
+    option: enabled
+    value: "1"
+    mode: "0644"
+  notify:
+    - Yum update cache
+  when:
+    - ansible_distribution in [ "CentOS", "EL", "Rocky", "AlmaLinux" ]
+    - ansible_distribution_major_version >= "8"

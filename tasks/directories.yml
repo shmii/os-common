@@ -1,0 +1,13 @@
+---
+- name: "Directories"
+  ansible.builtin.file:
+    path: "{{ directory.path }}"
+    owner: "{{ directory.owner }}"
+    group: "{{ directory.group }}"
+    mode: "{{ directory.mode }}"
+    state: directory
+    recurse: no
+    follow: no
+  loop: "{{ os_common_directories }}"
+  loop_control:
+    loop_var: directory

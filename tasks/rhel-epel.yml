@@ -1,17 +1,17 @@
 ---
 - name: Redhat Familly - Check if EPEL repo is already configured.
   stat:
-    path: "{{ __epel_repo_path }}"
+    path: "{{ __os_common_epel_repo_path }}"
   register: epel_repofile_result
 
 - name: Redhat Familly - Install EPEL repo GPG Key.
   rpm_key:
     state: present
-    key: "{{ __epel_repo_key }}"
+    key: "{{ __os_common_epel_repo_key }}"
 
 - name: Redhat Familly - Install EPEL repo.
   yum:
-    name: "{{ __epel_repo_path }}"
+    name: "{{ __os_common_epel_repo_path }}"
     state: present
   register: result
   until: result is succeeded

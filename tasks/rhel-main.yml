@@ -1,6 +1,20 @@
 ---
+- name: Redhat Familly - Print Vars
+  ansible.builtin.debug:
+    msg:
+      - "ansible_distribution : {{ ansible_distribution }}"
+      - "ansible_distribution_major_version : {{ ansible_distribution_major_version }}"
+      - "ansible_distribution_release : {{ ansible_distribution_release }}"
+      - "ansible_distribution_version : {{ ansible_distribution_version }}"
+      - "ansible_os_family : {{ ansible_os_family }}"
+      - "__os_common_powertools_repository_name : {{ __os_common_powertools_repository_name }}"
+      - "__os_common_powertools_repository_file : {{ __os_common_powertools_repository_file }}"
+      - "__os_common_epel_repo_path : {{ __os_common_epel_repo_path }}"
+      - "__os_common_epel_repo_key : {{ __os_common_epel_repo_key }}"
+      - "__os_common_tools_packages : {{ __os_common_tools_packages }}"
+
 - name: Redhat Familly - Create Application directory
-  import_tasks: application-directory.yml
+  import_tasks: directories.yml
 
 - name: Redhat Familly - Install EPEL repository
   import_tasks: rhel-epel.yml
