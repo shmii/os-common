@@ -1,7 +1,5 @@
 ---
-root_group: root
-__powertools_reponame: "powertools"
-__os_tools_packages:
+__os_common_tools_packages:
   - redhat-lsb-core
   - bash-completion
   - htop

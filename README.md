@@ -8,16 +8,15 @@ This role :
   -  Create base environement for systeme and infra administrators (users, directories, etc ...)
   -  Create base environement for applications and servicies
 
-
 ## Test and run environement
 
 
 ```
+$ molecule --version
 molecule 4.0.3 using python 3.10 
-    ansible:2.10.8
+    ansible:2.13.6
     delegated:4.0.3 from molecule
     docker:2.1.0 from molecule_docker requiring collections: community.docker>=3.0.2 ansible.posix>=1.4.0
-
 ```
 
 
@@ -27,31 +26,26 @@ None.
 
 ## Role Variables
 
-vailable variables are listed below, along with default values (see `defaults/main.yml`):
+Role Variables are listed below, along with default values (see `defaults/main.yml`):
 
 ### os_app_directories
 
-Use `os_app_directories` to define needed applications direcories
+Use `os_common_directories` dictionary to define needed applications direcories
 
 ```yaml
-os_app_directories:
-  - Name: "Application root directory"
-    path: /app
-    mode: '0755'
-```
-
-### os_infra_directories
-
-Use `os_infra_directories` to define needed applications direcories
-
-```yaml
-os_infra_directories:
-  - Name: "Infra tools root Directory"
-    path: /app/infra
-    mode: '0755'
-  - Name: "Test root Directory"
-    path: /app/test
-    mode: '0755'
+os_common_directories:
+  - path: /app
+    owner: "root"
+    group: "root"
+    mode: 755
+  - path: /app/infra
+    owner: "root"
+    group: "root"
+    mode: 755
+  - path: /app/test
+    owner: "root"
+    group: "root"
+    mode: 755
 ```
 
 ## Dependencies
@@ -80,9 +74,9 @@ This directory is necessary for some os (RHEL9, Rocky9, etc...) and not existing
 
 Redde Caesari quae sunt Caesaris, et quae sunt Dei Deo !
  
-- Jeff GEERLING ( https://www.linkedin.com/in/jeff-geerling-086bb2a/  --- https://github.com/geerlingguy)
-- Stephane ROBERT ( https://www.linkedin.com/in/stephanerobert1/  ---  https://blog.stephane-robert.info)
-
+- Jeff GEERLING ( https://www.linkedin.com/in/jeff-geerling  --- https://github.com/geerlingguy)
+- Stephane ROBERT ( https://www.linkedin.com/in/stephanerobert1  ---  https://blog.stephane-robert.info)
+- Robert de BOCK ( https://github.com/robertdebock  --- https://github.com/geerlingguy)
 
 
 ## License

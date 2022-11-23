@@ -12,6 +12,13 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
+  - name: instance-geerlingguy-debian8
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-debian8}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
   - name: instance-geerlingguy-debian9
     image: "geerlingguy/docker-${MOLECULE_DISTRO:-debian9}-ansible:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
@@ -110,8 +117,22 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
-  - name: instance-local-rockylinux9
+  - name: instance-shmii-rockylinux9
     image: "shmii/${MOLECULE_DISTRO:-rockylinux9}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: instance-shmii-almalinux8
+    image: "shmii/${MOLECULE_DISTRO:-almalinux8}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
+  - name: instance-shmii-almalinux9
+    image: "shmii/${MOLECULE_DISTRO:-almalinux9}-ansible:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
@@ -131,6 +152,13 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
+  - name: instance-geerlingguy-ubuntu2004
+    image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2004}-ansible:latest"
+    command: ${MOLECULE_DOCKER_COMMAND:-""}
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup:ro
+    privileged: true
+    pre_build_image: true
   - name: instance-geerlingguy-ubuntu2204
     image: "geerlingguy/docker-${MOLECULE_DISTRO:-ubuntu2204}-ansible:latest"
     command: ${MOLECULE_DOCKER_COMMAND:-""}
@@ -138,7 +166,6 @@ platforms:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
     pre_build_image: true
-
 provisioner:
   name: ansible
   playbooks:
