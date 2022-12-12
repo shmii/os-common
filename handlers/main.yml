@@ -1,8 +1,8 @@
 ---
 - name: Yum update cache
   ansible.builtin.yum:
-    update_cache: yes
+    update_cache: true
 
 - name: Dnf update cache
   ansible.builtin.dnf:
-    update_cache: yes
+    update_cache: true

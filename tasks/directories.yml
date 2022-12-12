@@ -6,8 +6,8 @@
     group: "{{ directory.group }}"
     mode: "{{ directory.mode }}"
     state: directory
-    recurse: no
-    follow: no
+    recurse: false
+    follow: false
   loop: "{{ os_common_directories }}"
   loop_control:
     loop_var: directory

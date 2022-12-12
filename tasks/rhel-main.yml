@@ -9,8 +9,8 @@
 
 - name: Redhat Familly - PowerTools repository
   import_tasks: rhel-powertools.yml
-  when: 
-    - (ansible_facts['distribution_major_version'] >= "8" and 
+  when:
+    - (ansible_facts['distribution_major_version'] >= "8" and
        ansible_distribution != 'Fedora')
 
 - name: Redhat Familly - Install DSI tools
