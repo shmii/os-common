@@ -1,17 +1,17 @@
 ---
 - name: Redhat Familly - OS Directories
-  import_tasks: directories.yml
+  ansible.builtin.import_tasks: directories.yml
 
 - name: Redhat Familly - EPEL repository
-  import_tasks: rhel-epel.yml
+  ansible.builtin.import_tasks: rhel-epel.yml
   when:
     - ansible_distribution != 'Fedora'
 
 - name: Redhat Familly - PowerTools repository
-  import_tasks: rhel-powertools.yml
+  ansible.builtin.import_tasks: rhel-powertools.yml
   when:
     - (ansible_facts['distribution_major_version'] >= "8" and
        ansible_distribution != 'Fedora')
 
 - name: Redhat Familly - Install DSI tools
-  import_tasks: rhel-tools.yml
+  ansible.builtin.import_tasks: rhel-tools.yml
